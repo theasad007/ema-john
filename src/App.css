@@ -1,0 +1,11 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a {
+    transition: 0.3s all;
+}
+img {
+    max-width: 100%;
+}
