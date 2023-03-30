@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
@@ -15,9 +16,15 @@ const Shop = () => {
             .catch(error => console.log(error))
     }, [])
 
+    useEffect(() => {
+        const storedCart = getShoppingCart();
+        console.log(storedCart)
+    }, [])
+
     const addToCartHandler = (product) => {
         const newCart = [...cart, product];
-        setCart(newCart)
+        setCart(newCart);
+        addToDb(product.id)
     }
 
     return (
